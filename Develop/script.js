@@ -80,7 +80,21 @@ function generatePassword(userSelectedChoices) {
   return userPassword;
 }
 
+// Series of prompts, confirming criteria.
 function userGeneratedchoices() {
+  useLowerCase = confirm(
+    "Would you like your randomly generated password to include lower case letters? Click OK to include or CANCEL to exclude."
+  );
+  useUpperCase = confirm(
+    "Would you like your randomly generated password to include upper case letters? Click OK to include  or CANCEL to exclude."
+  );
+  useNumbers = confirm(
+    "Would you like your randomly generated password to include numbers? Click OK to include or CANCEL to exclude."
+  );
+  useSpecChar = confirm(
+    "Would you like your randomly generated password to include special chatacter? Click OK to include or CANCEL to exclude."
+  );
+  ß;
   useLowerCase ? addUserGenChoices(lowerCase) : false;
   useUpperCase ? addUserGenChoices(upperCase) : false;
   useNUmbers ? addUserGenChoices(num) : false;

@@ -2,12 +2,12 @@ var generateBtn = document.querySelector("#generate");
 var userSelectedChar = [];
 var userPassword = "";
 
-///user input mock data // to be replaced with front end values
-var useLowerCase = false;
-var useUpperCase = true;
-var useNUmbers = true;
-var useSpecChar = false;
-var passwordLength = 128;
+// Replaced front end values from user input
+var useLowerCase;
+var useUpperCase;
+var useNUmbers;
+var useSpecChar;
+var passwordLength;
 
 // Variable Choices
 var upperCase = [

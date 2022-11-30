@@ -95,6 +95,8 @@ function writePassword() {
   userGeneratedchoices();
   var userPasswordOutput = generatePassword(userSelectedChar);
   console.log(userPasswordOutput);
+  var passwordTextBox = document.querySelector("#password");
+  userPasswordOutput.value = password;
 }
 
 // Add event listener to generate button
@@ -104,7 +106,6 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 

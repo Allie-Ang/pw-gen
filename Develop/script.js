@@ -2,7 +2,7 @@ var generateBtn = document.querySelector("#generate");
 var userSelectedChar = [];
 var userPassword = "";
 
-// Replaced front end values from user input
+// Declaring user input values, globally to call anytime.
 var useLowerCase;
 var useUpperCase;
 var useNumbers;
@@ -95,6 +95,7 @@ function userGeneratedchoices() {
     "Would you like your randomly generated password to include special chatacter? Click OK to include or CANCEL to exclude."
   );
 
+  // Ternary operator = like an if, else statement.
   useLowerCase ? addUserGenChoices(lowerCase) : false;
   useUpperCase ? addUserGenChoices(upperCase) : false;
   useNumbers ? addUserGenChoices(num) : false;
@@ -123,11 +124,14 @@ function getUserPasswordLength() {
   }
 }
 
-// Write password to the #password input
-function writePassword(...args: []) {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+// function to get user length, user choices to combine and create.
+//
+function writePassword() {
+  getUserPasswordLength();
+  userGeneratedchoices();
+  var userPasswordOutput = generatePassword(userSelectedChar);
+  var passwordTextBox = document.querySelector("#password");
+  passwordTextBox.value = userPasswordOutput;
 }
 
 // Add event listener to generate button

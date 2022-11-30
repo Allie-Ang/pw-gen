@@ -76,7 +76,6 @@ function generatePassword(userSelectedChoices) {
     var randomNumber = Math.floor(randomGenNum * arrayLength);
     userPassword += userSelectedChoices[randomNumber];
   }
-
   return userPassword;
 }
 
@@ -102,6 +101,7 @@ function userGeneratedchoices() {
   useSpecChar ? addUserGenChoices(specChar) : false;
 }
 
+// Function saying to combine choices with criteria
 function addUserGenChoices(stringofChoices) {
   userSelectedChar = userSelectedChar.concat(stringofChoices);
 }
@@ -125,7 +125,7 @@ function getUserPasswordLength() {
 }
 
 // function to get user length, user choices to combine and create.
-//
+// Along with textbox to display result.
 function writePassword() {
   getUserPasswordLength();
   userGeneratedchoices();

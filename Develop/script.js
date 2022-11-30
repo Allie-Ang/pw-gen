@@ -1,12 +1,13 @@
+var generateBtn = document.querySelector("#generate");
 var userSelectedChar = [];
 var userPassword = "";
 
-///user input mock data
+///user input mock data // to be replaced with front end values
 var useLowerCase = false;
 var useUpperCase = true;
 var useNUmbers = true;
 var useSpecChar = false;
-var passwordLength = 55;
+var passwordLength = 128;
 
 // Variable Choices
 var upperCase = [
@@ -69,15 +70,14 @@ var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specChar = [" ", "!", "#", "$", "%", "&", "(", ")", "*", "+"];
 
 function generatePassword(userSelectedChoices) {
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * userSelectedChoices.length);
-    userPassword += userSelectedChoices.substring(
-      randomNumber,
-      randomNumber + 1
-    );
+  for (var i = 0; i < passwordLength; i++) {
+    var arrayLength = userSelectedChoices.length;
+    var randomGenNum = Math.random();
+    var randomNumber = Math.floor(randomGenNum * arrayLength);
+    userPassword += userSelectedChoices[randomNumber];
   }
 
-  console.log(userPassword);
+  return userPassword;
 }
 
 function userGeneratedchoices() {
@@ -85,8 +85,6 @@ function userGeneratedchoices() {
   useUpperCase ? addUserGenChoices(upperCase) : false;
   useNUmbers ? addUserGenChoices(num) : false;
   useSpecChar ? addUserGenChoices(specChar) : false;
-
-  console.log(userSelectedChar);
 }
 
 function addUserGenChoices(stringofChoices) {
@@ -95,8 +93,12 @@ function addUserGenChoices(stringofChoices) {
 
 function writePassword() {
   userGeneratedchoices();
-  generatePassword(userSelectedChar);
+  var userPasswordOutput = generatePassword(userSelectedChar);
+  console.log(userPasswordOutput);
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
